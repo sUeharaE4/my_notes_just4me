@@ -15006,7 +15006,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -15027,7 +15027,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">xml_to_df</span><span class="p">(</span><span class="n">xml_path</span><span class="p">):</span>
@@ -15057,7 +15057,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">overlapping_img</span><span class="p">(</span><span class="n">base_img</span><span class="p">,</span> <span class="n">overlap_img</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -15091,8 +15091,8 @@ div#notebook {
     <span class="n">mask</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">overlap_img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span>
     <span class="c1"># 3色分に増やす。</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2BGR</span><span class="p">)</span>
-    <span class="n">mask</span><span class="p">[</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">230</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
-    <span class="n">mask</span><span class="p">[</span><span class="n">mask</span> <span class="o">&lt;=</span> <span class="mi">230</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#     mask[mask &gt; 230] = 255</span>
+<span class="c1">#     mask[mask &lt;= 230] = 0</span>
 
     <span class="c1"># アルファチャンネルがあれば削除</span>
     <span class="n">overlap_img</span> <span class="o">=</span> <span class="n">overlap_img</span><span class="p">[:,:,:</span><span class="mi">3</span><span class="p">]</span>
@@ -15117,7 +15117,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">check_target_area</span><span class="p">(</span><span class="n">clipped_img</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">240</span><span class="p">):</span>
@@ -15151,7 +15151,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">IMAGES_DIR</span> <span class="o">=</span> <span class="s1">&#39;../images/&#39;</span>
@@ -15173,7 +15173,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">targets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CLIP_TARGET</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
@@ -15186,20 +15186,97 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>Image</th>
+      <th>XML</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00003</td>
+      <td>../images/00003.jpg</td>
+      <td>../xmls/00003.xml</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00008</td>
+      <td>../images/00008.jpg</td>
+      <td>../xmls/00008.xml</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00010</td>
+      <td>../images/00010.jpg</td>
+      <td>../xmls/00010.xml</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00012</td>
+      <td>../images/00012.jpg</td>
+      <td>../xmls/00012.xml</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>00013</td>
+      <td>../images/00013.jpg</td>
+      <td>../xmls/00013.xml</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">xml_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">targets</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">xml_to_df</span><span class="p">(</span><span class="n">xml_path</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;single&#39;</span><span class="p">]</span>
     <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;xmin&#39;</span><span class="p">,</span> <span class="s1">&#39;ymin&#39;</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">,</span> <span class="s1">&#39;ymax&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
         <span class="n">width</span> <span class="o">=</span> <span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span>
-        <span class="n">height</span> <span class="o">=</span> <span class="n">ymax</span> <span class="o">-</span><span class="n">ymin</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="ow">or</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="k">continue</span>
         <span class="n">clip_img</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="n">ymin</span><span class="p">:</span><span class="n">ymin</span><span class="o">+</span><span class="n">height</span><span class="p">,</span> <span class="n">xmin</span><span class="p">:</span><span class="n">xmin</span><span class="o">+</span><span class="n">width</span><span class="p">]</span>
         <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">CLIP_DIR</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="s1">&#39;0&gt;5&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">,</span> <span class="n">clip_img</span><span class="p">)</span>
         <span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span>
@@ -15210,10 +15287,28 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████████████████████████████████████████████████████████████████████████████| 33/33 [00:00&lt;00:00, 50.61it/s]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">base_imgs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">)</span>
@@ -15223,8 +15318,9 @@ div#notebook {
 <span class="n">clip_imgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">CLIP_DIR</span> <span class="o">+</span> <span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">clip_imgs</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">img_cnt</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">OUTPUT_IMG_CNT</span><span class="p">)):</span>
+    <span class="n">rectangles</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">base_selected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">base_imgs</span><span class="p">)</span>
-    <span class="n">base_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">base_selected</span><span class="p">)</span>
+    <span class="n">base_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">base_selected</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TEXT_CNT_EACH_IMG</span><span class="p">):</span>
         <span class="n">overlap_text</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">clip_imgs</span><span class="p">)</span>
         <span class="n">overlap_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">overlap_text</span><span class="p">)</span>
@@ -15232,18 +15328,66 @@ div#notebook {
         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">9</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">x</span> <span class="o">+</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">+</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">+</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">+</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="n">base_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">clipped_img</span> <span class="o">=</span> <span class="n">base_img</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span><span class="o">+</span><span class="n">height</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">width</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">check_target_area</span><span class="p">(</span><span class="n">clipped_img</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">240</span><span class="p">):</span>
                 <span class="n">base_img</span> <span class="o">=</span> <span class="n">overlapping_img</span><span class="p">(</span><span class="n">base_img</span><span class="p">,</span> <span class="n">overlap_img</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
                 <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s1">&#39;tmp.jpg&#39;</span><span class="p">,</span> <span class="n">base_img</span><span class="p">)</span>
                 <span class="n">base_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;tmp.jpg&#39;</span><span class="p">)</span>
+                <span class="n">rect</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+                <span class="n">rectangles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
                 <span class="k">break</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rectangles</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUTPUT_DIR</span> <span class="o">+</span> <span class="nb">format</span><span class="p">(</span><span class="n">img_cnt</span><span class="p">,</span> <span class="s1">&#39;0&gt;5&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">OUTPUT_DIR</span> <span class="o">+</span> <span class="nb">format</span><span class="p">(</span><span class="n">img_cnt</span><span class="p">,</span> <span class="s1">&#39;0&gt;5&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">,</span> <span class="n">base_img</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 12%|█████████▋                                                                   | 125/1000 [57:33&lt;6:42:52, 27.63s/it]</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-8-61e63830ea21&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">     20</span>             clipped_img <span class="ansi-yellow-intense-fg ansi-bold">=</span> base_img<span class="ansi-yellow-intense-fg ansi-bold">[</span>y<span class="ansi-yellow-intense-fg ansi-bold">:</span>y<span class="ansi-yellow-intense-fg ansi-bold">+</span>height<span class="ansi-yellow-intense-fg ansi-bold">,</span> x<span class="ansi-yellow-intense-fg ansi-bold">:</span>x<span class="ansi-yellow-intense-fg ansi-bold">+</span>width<span class="ansi-yellow-intense-fg ansi-bold">]</span>
+<span class="ansi-green-fg">     21</span>             <span class="ansi-green-intense-fg ansi-bold">if</span> check_target_area<span class="ansi-yellow-intense-fg ansi-bold">(</span>clipped_img<span class="ansi-yellow-intense-fg ansi-bold">,</span> threshold<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">240</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 22</span><span class="ansi-yellow-intense-fg ansi-bold">                 </span>base_img <span class="ansi-yellow-intense-fg ansi-bold">=</span> overlapping_img<span class="ansi-yellow-intense-fg ansi-bold">(</span>base_img<span class="ansi-yellow-intense-fg ansi-bold">,</span> overlap_img<span class="ansi-yellow-intense-fg ansi-bold">,</span> x<span class="ansi-yellow-intense-fg ansi-bold">,</span> y<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     23</span>                 cv2<span class="ansi-yellow-intense-fg ansi-bold">.</span>imwrite<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;tmp.jpg&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> base_img<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     24</span>                 base_img <span class="ansi-yellow-intense-fg ansi-bold">=</span> cv2<span class="ansi-yellow-intense-fg ansi-bold">.</span>imread<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;tmp.jpg&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-3-c7c40828d440&gt;</span> in <span class="ansi-cyan-fg">overlapping_img</span><span class="ansi-blue-intense-fg ansi-bold">(base_img, overlap_img, x, y)</span>
+<span class="ansi-green-fg">     24</span>     base_height<span class="ansi-yellow-intense-fg ansi-bold">,</span> base_width <span class="ansi-yellow-intense-fg ansi-bold">=</span> base_img<span class="ansi-yellow-intense-fg ansi-bold">.</span>shape<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">:</span><span class="ansi-cyan-intense-fg ansi-bold">2</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
+<span class="ansi-green-fg">     25</span>     <span class="ansi-green-intense-fg ansi-bold">assert</span> y <span class="ansi-yellow-intense-fg ansi-bold">+</span> height <span class="ansi-yellow-intense-fg ansi-bold">&lt;</span> base_height<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;y方向にはみ出る&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 26</span><span class="ansi-yellow-intense-fg ansi-bold">     </span><span class="ansi-green-intense-fg ansi-bold">assert</span> x <span class="ansi-yellow-intense-fg ansi-bold">+</span> width <span class="ansi-yellow-intense-fg ansi-bold">&lt;</span> base_width<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;x方向にはみ出る&#39;</span>
+<span class="ansi-green-fg">     27</span> 
+<span class="ansi-green-fg">     28</span>     <span class="ansi-red-intense-fg ansi-bold"># 白黒反転してマスクとする</span>
+
+<span class="ansi-red-intense-fg ansi-bold">AssertionError</span>: x方向にはみ出る</pre>
+</div>
+</div>
+
 </div>
 </div>
 
